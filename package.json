@@ -1,0 +1,28 @@
+{
+  "name": "socketchat",
+  "version": "1.0.0",
+  "description": "Realtime chat server with rooms, presence, typing indicators, history and moderation hooks. Uses only Node's built-in HTTP and WebSocket support.",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "author": "Arvion Technologies <hello@arviontech.net> (https://arviontech.net)",
+  "homepage": "https://arvion-technology.github.io/labs/demos/socketchat/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arvion-technology/socketchat.git"
+  },
+  "scripts": {
+    "test": "node --test",
+    "demo": "node scripts/serve.mjs . 4173",
+    "shot": "node scripts/shot.mjs 1440 900 docs/screenshot.png",
+    "shot:2": "node scripts/shot.mjs 1440 900 docs/screenshot-2.png #engineering",
+    "verify": "node --test test/ && node scripts/serve-check.mjs",
+    "start": "node server.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "socketchat-server": "server.mjs"
+  }
+}
