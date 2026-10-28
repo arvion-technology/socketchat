@@ -274,11 +274,11 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 24px 0; }
 .btn:hover { background: rgba(255, 255, 255, 0.05); text-decoration: none; }
 .btn:active { transform: translateY(1px); }
 .btn.primary {
-  --btn-bg: linear-gradient(180deg, #ffd98f, var(--gold));
+  --btn-bg: linear-gradient(180deg, color-mix(in srgb, var(--gold) 70%, #fff), var(--gold));
   --btn-fg: #1a1405; --btn-bd: #e3a94e;
   box-shadow: 0 10px 24px -14px rgba(245, 194, 107, 0.8);
 }
-.btn.primary:hover { --btn-bg: linear-gradient(180deg, #ffe3ad, #f7ca7c); }
+.btn.primary:hover { --btn-bg: linear-gradient(180deg, color-mix(in srgb, var(--gold) 55%, #fff), var(--gold)); }
 .btn.blue { --btn-bg: linear-gradient(180deg, #5b90ff, var(--blue)); --btn-fg: #fff; --btn-bd: #2a63d9; }
 .btn.ghost { --btn-bd: transparent; color: var(--text-2); }
 .btn.ghost:hover { color: var(--text); }
@@ -350,7 +350,7 @@ table.table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
 
 /* ---------- progress / meters -------------------------------------------- */
 .progress { height: 8px; border-radius: 99px; background: var(--surface-3); overflow: hidden; }
-.progress > i { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #e0a94a, var(--gold)); transition: width 0.5s var(--ease); }
+.progress > i { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, color-mix(in srgb, var(--gold) 72%, #000), var(--gold)); transition: width 0.5s var(--ease); }
 .progress.blue > i { background: linear-gradient(90deg, #2f66e0, #6f9dff); }
 .progress.green > i { background: linear-gradient(90deg, #0f9f74, var(--green)); }
 .meter { display: flex; align-items: center; gap: 10px; }
@@ -360,7 +360,7 @@ table.table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
   width: 32px; height: 32px; border-radius: 50%; flex: none;
   display: grid; place-items: center;
   font: 600 12px/1 var(--font-sans); color: #10131c;
-  background: linear-gradient(135deg, #ffd98f, #d9a24a);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--gold) 55%, #fff), var(--gold));
   border: 1px solid rgba(0, 0, 0, 0.35);
 }
 .avatar.blue { background: linear-gradient(135deg, #9dc0ff, #3a7bff); color: #fff; }
@@ -486,3 +486,146 @@ pre.code .tok-c { color: #5f6c80; } pre.code .tok-n { color: #f5c26b; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
 }
+
+/* ============================================================================
+   THEMES — each project picks one so the portfolio reads as a studio with a
+   range, not thirty copies of one screen. Themes only override tokens plus the
+   few components that assume a dark surface; layouts stay project-specific.
+   ========================================================================== */
+
+/* paper — warm editorial light, ink text, brick accent */
+.theme-paper {
+  --bg: #f7f3ea; --bg-soft: #efe8db; --surface: #ffffff; --surface-2: #fbf7ef; --surface-3: #f1e9dc;
+  --line: rgba(28, 22, 14, 0.12); --line-strong: rgba(28, 22, 14, 0.22);
+  --text: #181410; --text-2: #3b342a; --muted: #736858;
+  --gold: #b23a2b; --gold-soft: rgba(178, 58, 43, 0.1); --gold-line: rgba(178, 58, 43, 0.32);
+  --blue: #365a7a; --blue-soft: rgba(54, 90, 122, 0.1);
+  --green: #2f7d5b; --green-soft: rgba(47, 125, 91, 0.1);
+  --red: #a52a1f; --red-soft: rgba(165, 42, 31, 0.1);
+  --amber: #a87718; --purple: #6c4b8a;
+}
+.theme-paper .aurora { background: radial-gradient(760px 440px at 14% -10%, rgba(178, 58, 43, 0.1), transparent 65%), radial-gradient(820px 520px at 88% -12%, rgba(54, 90, 122, 0.1), transparent 68%); }
+.theme-paper .grid-lines { background-image: linear-gradient(to right, rgba(28, 22, 14, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(28, 22, 14, 0.05) 1px, transparent 1px); }
+
+/* sand — pale stone light, olive accent (documentation and ops screens) */
+.theme-sand {
+  --bg: #f2f0e9; --bg-soft: #e9e6dc; --surface: #fbfaf6; --surface-2: #f4f2ea; --surface-3: #e7e3d7;
+  --line: rgba(30, 30, 20, 0.12); --line-strong: rgba(30, 30, 20, 0.22);
+  --text: #191a14; --text-2: #3c3e32; --muted: #6f7362;
+  --gold: #5f6b2a; --gold-soft: rgba(95, 107, 42, 0.1); --gold-line: rgba(95, 107, 42, 0.34);
+  --blue: #3f5d66; --blue-soft: rgba(63, 93, 102, 0.1);
+  --green: #3f7a4a; --green-soft: rgba(63, 122, 74, 0.1);
+  --red: #a4482f; --red-soft: rgba(164, 72, 47, 0.1);
+  --amber: #9a7420; --purple: #6a4f86;
+}
+.theme-sand .aurora { background: radial-gradient(760px 440px at 12% -8%, rgba(95, 107, 42, 0.12), transparent 65%), radial-gradient(820px 520px at 90% -10%, rgba(63, 93, 102, 0.1), transparent 68%); }
+.theme-sand .grid-lines { background-image: linear-gradient(to right, rgba(30, 30, 20, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(30, 30, 20, 0.05) 1px, transparent 1px); }
+
+/* ink — strict black and white, light. No hue at all. */
+.theme-ink {
+  --bg: #ffffff; --bg-soft: #f5f5f5; --surface: #ffffff; --surface-2: #fafafa; --surface-3: #ededed;
+  --line: rgba(0, 0, 0, 0.13); --line-strong: rgba(0, 0, 0, 0.26);
+  --text: #0a0a0a; --text-2: #2b2b2b; --muted: #6b6b6b;
+  --gold: #0a0a0a; --gold-soft: rgba(0, 0, 0, 0.06); --gold-line: rgba(0, 0, 0, 0.3);
+  --blue: #0a0a0a; --blue-soft: rgba(0, 0, 0, 0.05);
+  --green: #1f1f1f; --green-soft: rgba(0, 0, 0, 0.06);
+  --red: #0a0a0a; --red-soft: rgba(0, 0, 0, 0.06);
+  --amber: #333333; --purple: #333333;
+}
+.theme-ink .aurora { background: radial-gradient(760px 440px at 18% -12%, rgba(0, 0, 0, 0.05), transparent 65%); }
+.theme-ink .grid-lines { background-image: linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px); }
+
+/* noir — strict black and white, dark. The inverse of ink. */
+.theme-noir {
+  --bg: #050505; --bg-soft: #0b0b0b; --surface: #111111; --surface-2: #161616; --surface-3: #1f1f1f;
+  --line: rgba(255, 255, 255, 0.1); --line-strong: rgba(255, 255, 255, 0.22);
+  --text: #ffffff; --text-2: #d4d4d4; --muted: #8f8f8f;
+  --gold: #ffffff; --gold-soft: rgba(255, 255, 255, 0.08); --gold-line: rgba(255, 255, 255, 0.32);
+  --blue: #d4d4d4; --blue-soft: rgba(255, 255, 255, 0.06);
+  --green: #e8e8e8; --green-soft: rgba(255, 255, 255, 0.07);
+  --red: #ffffff; --red-soft: rgba(255, 255, 255, 0.06);
+  --amber: #cfcfcf; --purple: #cfcfcf;
+}
+.theme-noir .aurora { background: radial-gradient(760px 440px at 20% -12%, rgba(255, 255, 255, 0.05), transparent 65%); }
+.theme-noir .grid-lines { opacity: 0.2; }
+
+/* ember — warm dark: charcoal, coral, amber (consumer-facing screens) */
+.theme-ember {
+  --bg: #150d0a; --bg-soft: #1b110c; --surface: #221511; --surface-2: #291a14; --surface-3: #35221a;
+  --line: rgba(255, 226, 200, 0.1); --line-strong: rgba(255, 226, 200, 0.2);
+  --text: #fff4ec; --text-2: #eccfbe; --muted: #b08e7c;
+  --gold: #ff8a5c; --gold-soft: rgba(255, 138, 92, 0.12); --gold-line: rgba(255, 138, 92, 0.34);
+  --blue: #7fb2ff; --blue-soft: rgba(127, 178, 255, 0.12);
+  --green: #7fd8a8; --green-soft: rgba(127, 216, 168, 0.12);
+  --red: #ff6b6b; --red-soft: rgba(255, 107, 107, 0.12);
+  --amber: #ffc46b; --purple: #d6a2ff;
+}
+.theme-ember .aurora { background: radial-gradient(760px 440px at 10% -10%, rgba(255, 138, 92, 0.16), transparent 65%), radial-gradient(820px 520px at 92% -12%, rgba(214, 130, 60, 0.14), transparent 68%); }
+
+/* ocean — deep teal, mint accent (data and scheduling screens) */
+.theme-ocean {
+  --bg: #04202a; --bg-soft: #062834; --surface: #072f3d; --surface-2: #0a3847; --surface-3: #0e4556;
+  --line: rgba(200, 255, 245, 0.1); --line-strong: rgba(200, 255, 245, 0.22);
+  --text: #eafffb; --text-2: #bfe8e2; --muted: #7fb0ad;
+  --gold: #63e6b6; --gold-soft: rgba(99, 230, 182, 0.12); --gold-line: rgba(99, 230, 182, 0.34);
+  --blue: #5cb8ff; --blue-soft: rgba(92, 184, 255, 0.12);
+  --green: #63e6b6; --green-soft: rgba(99, 230, 182, 0.12);
+  --red: #ff7b7b; --red-soft: rgba(255, 123, 123, 0.12);
+  --amber: #ffd166; --purple: #b79bff;
+}
+.theme-ocean .aurora { background: radial-gradient(760px 440px at 12% -10%, rgba(99, 230, 182, 0.14), transparent 65%), radial-gradient(820px 520px at 90% -12%, rgba(92, 184, 255, 0.12), transparent 68%); }
+
+/* forest — dark green, lime accent (infrastructure screens) */
+.theme-forest {
+  --bg: #07160f; --bg-soft: #0a1e14; --surface: #0c2418; --surface-2: #102b1d; --surface-3: #153723;
+  --line: rgba(220, 255, 230, 0.1); --line-strong: rgba(220, 255, 230, 0.2);
+  --text: #f0fff4; --text-2: #c9e6cf; --muted: #86a892;
+  --gold: #b6f36b; --gold-soft: rgba(182, 243, 107, 0.12); --gold-line: rgba(182, 243, 107, 0.34);
+  --blue: #5eead4; --blue-soft: rgba(94, 234, 212, 0.12);
+  --green: #b6f36b; --green-soft: rgba(182, 243, 107, 0.12);
+  --red: #ff8f8f; --red-soft: rgba(255, 143, 143, 0.12);
+  --amber: #ffd166; --purple: #c4b5fd;
+}
+.theme-forest .aurora { background: radial-gradient(760px 440px at 10% -10%, rgba(182, 243, 107, 0.12), transparent 65%), radial-gradient(820px 520px at 92% -12%, rgba(94, 234, 212, 0.1), transparent 68%); }
+
+/* violet — near-black purple, lilac accent (AI and developer tools) */
+.theme-violet {
+  --bg: #100a1c; --bg-soft: #150e24; --surface: #1a1230; --surface-2: #201639; --surface-3: #2b1e4a;
+  --line: rgba(240, 225, 255, 0.1); --line-strong: rgba(240, 225, 255, 0.2);
+  --text: #fbf7ff; --text-2: #ded0f2; --muted: #a292bd;
+  --gold: #b28bff; --gold-soft: rgba(178, 139, 255, 0.13); --gold-line: rgba(178, 139, 255, 0.36);
+  --blue: #ff7ac6; --blue-soft: rgba(255, 122, 198, 0.12);
+  --green: #4ade80; --green-soft: rgba(74, 222, 128, 0.12);
+  --red: #ff8080; --red-soft: rgba(255, 128, 128, 0.12);
+  --amber: #ffd166; --purple: #b28bff;
+}
+.theme-violet .aurora { background: radial-gradient(760px 440px at 10% -10%, rgba(178, 139, 255, 0.16), transparent 65%), radial-gradient(820px 520px at 92% -12%, rgba(255, 122, 198, 0.12), transparent 68%); }
+
+/* ---- components that assume a dark page ------------------------------- */
+.theme-paper .sidebar, .theme-sand .sidebar, .theme-ink .sidebar {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.65), rgba(246, 243, 236, 0.4));
+}
+.theme-paper .nav-item:hover, .theme-sand .nav-item:hover, .theme-ink .nav-item:hover { background: rgba(0, 0, 0, 0.045); }
+.theme-paper .btn:hover, .theme-sand .btn:hover, .theme-ink .btn:hover { background: rgba(0, 0, 0, 0.05); }
+.theme-paper .btn.primary, .theme-sand .btn.primary, .theme-ink .btn.primary {
+  --btn-bg: linear-gradient(180deg, #c9503e, #a53526); --btn-fg: #fff; --btn-bd: #8d2a1e;
+  box-shadow: 0 10px 24px -14px rgba(178, 58, 43, 0.6);
+}
+.theme-sand .btn.primary { --btn-bg: linear-gradient(180deg, #6d7a33, #55611f); --btn-bd: #48521a; }
+.theme-ink .btn.primary { --btn-bg: #0a0a0a; --btn-fg: #fff; --btn-bd: #000; box-shadow: none; }
+.theme-paper .input, .theme-sand .input, .theme-ink .input,
+.theme-paper .select, .theme-sand .select, .theme-ink .select,
+.theme-paper .textarea, .theme-sand .textarea, .theme-ink .textarea {
+  background: rgba(255, 255, 255, 0.85); color: var(--text); border-color: var(--line-strong);
+}
+.theme-paper .input::placeholder, .theme-sand .input::placeholder, .theme-ink .input::placeholder { color: #9a927f; }
+.theme-paper .badge, .theme-sand .badge, .theme-ink .badge { background: rgba(0, 0, 0, 0.035); }
+.theme-paper .tabs, .theme-sand .tabs, .theme-ink .tabs { background: rgba(0, 0, 0, 0.04); }
+.theme-paper .tab.active, .theme-sand .tab.active, .theme-ink .tab.active { background: #fff; color: var(--text); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08); }
+.theme-paper .demo-banner, .theme-sand .demo-banner, .theme-ink .demo-banner {
+  background: rgba(255, 255, 255, 0.92); border-color: var(--line-strong); color: var(--muted);
+}
+.theme-paper .avatar, .theme-sand .avatar, .theme-ink .avatar { color: #fff; }
+.theme-paper .topbar, .theme-sand .topbar, .theme-ink .topbar { background: color-mix(in srgb, var(--bg) 82%, transparent); }
+.theme-paper pre.code, .theme-sand pre.code, .theme-ink pre.code { background: #f4f1ea; color: #2a251c; border-color: var(--line-strong); }
+.theme-paper kbd, .theme-sand kbd, .theme-ink kbd { background: #fff; }

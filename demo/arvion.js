@@ -31,6 +31,18 @@
     return { node: host, add: (...nodes) => (host.append(...nodes.map((n) => (n.nodeType ? n : document.createTextNode(String(n))))), host) };
   }
 
+  /* ---------- theme colours --------------------------------------------- */
+  function cssVar(name, fallback) {
+    if (typeof document === "undefined") return fallback;
+    const v = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+    return v || fallback;
+  }
+  const color = (name) => {
+    const map = { gold: "--gold", blue: "--blue", green: "--green", red: "--red", purple: "--purple", text: "--text", muted: "--muted", surface: "--surface", line: "--line" };
+    const fallback = { gold: "#f5c26b", blue: "#3a7bff", green: "#34d399", red: "#f87171", purple: "#a78bfa", text: "#ffffff", muted: "#8d98ab", surface: "#121826", line: "rgba(255,255,255,.08)" }[name] || "#f5c26b";
+    return cssVar(map[name] || name, fallback);
+  };
+
   /* ---------- formatting ------------------------------------------------ */
   const fmt = {
     num: (n, opts = {}) => new Intl.NumberFormat("en-US", opts).format(n),
@@ -174,8 +186,9 @@
     svg.setAttribute("role", "img");
     svg.setAttribute("aria-label", "Trend chart");
     const defs = document.createElementNS(ns, "defs");
+    const accent = color("gold");
     defs.innerHTML = `<linearGradient id="goldFade" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#f5c26b" stop-opacity=".28"/><stop offset="1" stop-color="#f5c26b" stop-opacity="0"/>
+      <stop offset="0" stop-color="${accent}" stop-opacity=".28"/><stop offset="1" stop-color="${accent}" stop-opacity="0"/>
     </linearGradient>`;
     svg.append(defs);
     // grid + y labels
@@ -264,7 +277,7 @@
     }
     return svg;
   }
-  function sparkline(data, { width = 120, height = 34, color = "#f5c26b" } = {}) {
+  function sparkline(data, { width = 120, height = 34, color: stroke = null } = {}) {
     const ns = "http://www.w3.org/2000/svg";
     const max = Math.max(...data), min = Math.min(...data);
     const span = max - min || 1;
@@ -274,7 +287,7 @@
     svg.setAttribute("width", width); svg.setAttribute("height", height);
     const p = document.createElementNS(ns, "path");
     p.setAttribute("d", smoothPath(pts)); p.setAttribute("fill", "none");
-    p.setAttribute("stroke", color); p.setAttribute("stroke-width", 1.8);
+    p.setAttribute("stroke", stroke || color("gold")); p.setAttribute("stroke-width", 1.8);
     p.setAttribute("stroke-linecap", "round");
     svg.append(p);
     return svg;
@@ -357,6 +370,7 @@
 
   global.A = {
     el, $, $$, mount, fmt, rng, pick, between, int, normal, store, toast, modal, tabs,
+    color, palette: () => [color("gold"), color("blue"), color("green"), color("purple")],
     lineChart, donut, sparkline, barList, dataTable, download, toCSV, debounce, uid,
     clamp, sum, groupBy, path, smoothPath, timeAgoClock, markActiveNav,
   };
