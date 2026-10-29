@@ -1,6 +1,6 @@
 # Security policy
 
-We take security seriously — these repositories are maintained by
+We take security seriously, these repositories are maintained by
 **Arvion Technologies** and are used in production by our clients.
 
 ## Reporting a vulnerability

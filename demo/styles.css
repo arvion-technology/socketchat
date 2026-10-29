@@ -1,4 +1,4 @@
-/* SocketChat demo — chat layout. Arvion supplies tokens, cards, badges and the
+/* SocketChat demo, chat layout. Arvion supplies tokens, cards, badges and the
    rest of the shell; this file only lays out the three-pane chat. */
 
 body { overflow: hidden; }

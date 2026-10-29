@@ -1,4 +1,4 @@
-/* ARVION UI — shared runtime helpers (zero dependencies).
+/* ARVION UI, shared runtime helpers (zero dependencies).
    Load with <script src="arvion.js"></script>; everything hangs off window.A. */
 (function (global) {
   "use strict";
@@ -64,7 +64,7 @@
     },
     date(d, mode = "short") {
       const x = d instanceof Date ? d : new Date(d);
-      if (Number.isNaN(+x)) return "—";
+      if (Number.isNaN(+x)) return ", ";
       if (mode === "iso") return x.toISOString().slice(0, 10);
       if (mode === "time") return x.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" });
       if (mode === "long") return x.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
@@ -80,7 +80,7 @@
         if (s < limit) return Math.max(1, Math.round(s / prev)) + unit + " ago";
         prev = limit;
       }
-      return "—";
+      return ", ";
     },
     initials(name) {
       return (name || "?").split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0].toUpperCase()).join("");

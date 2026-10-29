@@ -35,7 +35,7 @@ must(/--gold:\s*#f5c26b/i.test(css), "demo/arvion.css is not the Arvion brand st
 if (existsSync(join(demoDir, "fonts"))) {
   const fonts = ["Inter-400_700.woff2", "Poppins-600.woff2"];
   for (const f of fonts) must(existsSync(join(demoDir, "fonts", f)), `missing font ${f}`);
-} else warn.push("demo/fonts missing — screenshots will fall back to system fonts");
+} else warn.push("demo/fonts missing, screenshots will fall back to system fonts");
 must(existsSync("docs/screenshot.png"), "docs/screenshot.png is missing (run npm run shot)");
 
 if (warn.length) console.warn("warnings:\n - " + warn.join("\n - "));

@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark" />
-  <title>SocketChat — realtime rooms, presence and typing over WebSockets</title>
+  <title>SocketChat | realtime rooms, presence and typing over WebSockets</title>
   <meta name="description" content="A dependency-free RFC 6455 WebSocket server: frame codec, rooms, presence, typing indicators, history and rate limits. The demo runs the real room hub with simulated peers." />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 9 L91 91 H73 L50 52 L27 91 H9 Z' fill='%23f5c26b'/><circle cx='50' cy='31' r='6.6' fill='%230b0f1a'/><path d='M50 52 L67 90 H33 Z' fill='%230b0f1a'/></svg>" />
   <link rel="stylesheet" href="arvion.css" />
@@ -48,9 +48,9 @@
         <div>
           <div class="row" style="gap:9px">
             <h1 id="room-title">General</h1>
-            <span class="badge" id="room-members">—</span>
+            <span class="badge" id="room-members">, </span>
           </div>
-          <div class="small muted" id="room-topic">—</div>
+          <div class="small muted" id="room-topic">, </div>
         </div>
         <span class="spacer"></span>
         <span class="badge" title="The demo uses the hub locally; the server adds the transport">
@@ -94,8 +94,8 @@
         <div class="card-head" style="margin-bottom:10px"><div class="card-title">Room state</div></div>
         <dl class="kv" style="margin:0">
           <dt>Room</dt><dd class="mono" id="state-room">#general</dd>
-          <dt>Members</dt><dd class="mono" id="state-members">–</dd>
-          <dt>Messages</dt><dd class="mono" id="state-messages">–</dd>
+          <dt>Members</dt><dd class="mono" id="state-members">, </dd>
+          <dt>Messages</dt><dd class="mono" id="state-messages">, </dd>
           <dt>History cap</dt><dd class="mono">500 / room</dd>
           <dt>Socket</dt><dd class="mono">text frames</dd>
         </dl>

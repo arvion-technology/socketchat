@@ -1,5 +1,5 @@
 /* ============================================================================
-   ARVION UI — shared shell for the Arvion Technologies open-source showcase.
+   ARVION UI, shared shell for the Arvion Technologies open-source showcase.
    Brand: deep navy (#0b0f1a), gold (#f5c26b), electric blue (#3a7bff).
    Zero build step, zero dependencies. Drop this file next to a demo.
    ========================================================================== */
@@ -488,12 +488,12 @@ pre.code .tok-c { color: #5f6c80; } pre.code .tok-n { color: #f5c26b; }
 }
 
 /* ============================================================================
-   THEMES — each project picks one so the portfolio reads as a studio with a
+   THEMES, each project picks one so the portfolio reads as a studio with a
    range, not thirty copies of one screen. Themes only override tokens plus the
    few components that assume a dark surface; layouts stay project-specific.
    ========================================================================== */
 
-/* paper — warm editorial light, ink text, brick accent */
+/* paper, warm editorial light, ink text, brick accent */
 .theme-paper {
   --bg: #f7f3ea; --bg-soft: #efe8db; --surface: #ffffff; --surface-2: #fbf7ef; --surface-3: #f1e9dc;
   --line: rgba(28, 22, 14, 0.12); --line-strong: rgba(28, 22, 14, 0.22);
@@ -507,7 +507,7 @@ pre.code .tok-c { color: #5f6c80; } pre.code .tok-n { color: #f5c26b; }
 .theme-paper .aurora { background: radial-gradient(760px 440px at 14% -10%, rgba(178, 58, 43, 0.1), transparent 65%), radial-gradient(820px 520px at 88% -12%, rgba(54, 90, 122, 0.1), transparent 68%); }
 .theme-paper .grid-lines { background-image: linear-gradient(to right, rgba(28, 22, 14, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(28, 22, 14, 0.05) 1px, transparent 1px); }
 
-/* sand — pale stone light, olive accent (documentation and ops screens) */
+/* sand, pale stone light, olive accent (documentation and ops screens) */
 .theme-sand {
   --bg: #f2f0e9; --bg-soft: #e9e6dc; --surface: #fbfaf6; --surface-2: #f4f2ea; --surface-3: #e7e3d7;
   --line: rgba(30, 30, 20, 0.12); --line-strong: rgba(30, 30, 20, 0.22);
@@ -521,7 +521,7 @@ pre.code .tok-c { color: #5f6c80; } pre.code .tok-n { color: #f5c26b; }
 .theme-sand .aurora { background: radial-gradient(760px 440px at 12% -8%, rgba(95, 107, 42, 0.12), transparent 65%), radial-gradient(820px 520px at 90% -10%, rgba(63, 93, 102, 0.1), transparent 68%); }
 .theme-sand .grid-lines { background-image: linear-gradient(to right, rgba(30, 30, 20, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(30, 30, 20, 0.05) 1px, transparent 1px); }
 
-/* ink — strict black and white, light. No hue at all. */
+/* ink, strict black and white, light. No hue at all. */
 .theme-ink {
   --bg: #ffffff; --bg-soft: #f5f5f5; --surface: #ffffff; --surface-2: #fafafa; --surface-3: #ededed;
   --line: rgba(0, 0, 0, 0.13); --line-strong: rgba(0, 0, 0, 0.26);
@@ -535,7 +535,7 @@ pre.code .tok-c { color: #5f6c80; } pre.code .tok-n { color: #f5c26b; }
 .theme-ink .aurora { background: radial-gradient(760px 440px at 18% -12%, rgba(0, 0, 0, 0.05), transparent 65%); }
 .theme-ink .grid-lines { background-image: linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px); }
 
-/* noir — strict black and white, dark. The inverse of ink. */
+/* noir, strict black and white, dark. The inverse of ink. */
 .theme-noir {
   --bg: #050505; --bg-soft: #0b0b0b; --surface: #111111; --surface-2: #161616; --surface-3: #1f1f1f;
   --line: rgba(255, 255, 255, 0.1); --line-strong: rgba(255, 255, 255, 0.22);
@@ -549,7 +549,7 @@ pre.code .tok-c { color: #5f6c80; } pre.code .tok-n { color: #f5c26b; }
 .theme-noir .aurora { background: radial-gradient(760px 440px at 20% -12%, rgba(255, 255, 255, 0.05), transparent 65%); }
 .theme-noir .grid-lines { opacity: 0.2; }
 
-/* ember — warm dark: charcoal, coral, amber (consumer-facing screens) */
+/* ember, warm dark: charcoal, coral, amber (consumer-facing screens) */
 .theme-ember {
   --bg: #150d0a; --bg-soft: #1b110c; --surface: #221511; --surface-2: #291a14; --surface-3: #35221a;
   --line: rgba(255, 226, 200, 0.1); --line-strong: rgba(255, 226, 200, 0.2);
@@ -562,7 +562,7 @@ pre.code .tok-c { color: #5f6c80; } pre.code .tok-n { color: #f5c26b; }
 }
 .theme-ember .aurora { background: radial-gradient(760px 440px at 10% -10%, rgba(255, 138, 92, 0.16), transparent 65%), radial-gradient(820px 520px at 92% -12%, rgba(214, 130, 60, 0.14), transparent 68%); }
 
-/* ocean — deep teal, mint accent (data and scheduling screens) */
+/* ocean, deep teal, mint accent (data and scheduling screens) */
 .theme-ocean {
   --bg: #04202a; --bg-soft: #062834; --surface: #072f3d; --surface-2: #0a3847; --surface-3: #0e4556;
   --line: rgba(200, 255, 245, 0.1); --line-strong: rgba(200, 255, 245, 0.22);
@@ -575,7 +575,7 @@ pre.code .tok-c { color: #5f6c80; } pre.code .tok-n { color: #f5c26b; }
 }
 .theme-ocean .aurora { background: radial-gradient(760px 440px at 12% -10%, rgba(99, 230, 182, 0.14), transparent 65%), radial-gradient(820px 520px at 90% -12%, rgba(92, 184, 255, 0.12), transparent 68%); }
 
-/* forest — dark green, lime accent (infrastructure screens) */
+/* forest, dark green, lime accent (infrastructure screens) */
 .theme-forest {
   --bg: #07160f; --bg-soft: #0a1e14; --surface: #0c2418; --surface-2: #102b1d; --surface-3: #153723;
   --line: rgba(220, 255, 230, 0.1); --line-strong: rgba(220, 255, 230, 0.2);
@@ -588,7 +588,7 @@ pre.code .tok-c { color: #5f6c80; } pre.code .tok-n { color: #f5c26b; }
 }
 .theme-forest .aurora { background: radial-gradient(760px 440px at 10% -10%, rgba(182, 243, 107, 0.12), transparent 65%), radial-gradient(820px 520px at 92% -12%, rgba(94, 234, 212, 0.1), transparent 68%); }
 
-/* violet — near-black purple, lilac accent (AI and developer tools) */
+/* violet, near-black purple, lilac accent (AI and developer tools) */
 .theme-violet {
   --bg: #100a1c; --bg-soft: #150e24; --surface: #1a1230; --surface-2: #201639; --surface-3: #2b1e4a;
   --line: rgba(240, 225, 255, 0.1); --line-strong: rgba(240, 225, 255, 0.2);

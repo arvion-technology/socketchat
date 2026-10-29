@@ -3,7 +3,7 @@
 // Deliberately transport-free. The WebSocket server feeds parsed protocol
 // messages in and broadcasts the returned events; the browser demo calls the
 // exact same methods for its simulated peers. That is what keeps the demo honest
-// — there is no second, simplified chat implementation in demo/app.js.
+//, there is no second, simplified chat implementation in demo/app.js.
 
 export const PROTOCOL_VERSION = 1;
 

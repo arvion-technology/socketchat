@@ -17,12 +17,12 @@ const ROLE_BY_USER = Object.fromEntries(PEERS.map((peer) => [peer.userId, peer.r
 
 const SCRIPTS = {
   general: [
-    [0, "The frame codec is green against the RFC vectors — masked Hello round-trips byte for byte."],
+    [0, "The frame codec is green against the RFC vectors, masked Hello round-trips byte for byte."],
     [1, "Can the presence list show who is typing without another round trip?"],
     [2, "It rides the presence payload. Typing is a six-second expiry on the client record."],
     [0, "Close frames echo the peer's status code now instead of always sending 1000."],
     [1, "Room switcher feels good. Do we want unread counts?"],
-    [2, "Not yet — history is per room, unread needs a per-client cursor."],
+    [2, "Not yet, history is per room, unread needs a per-client cursor."],
     [0, "Leaving that out of v1. The runbook has it as a follow-up."],
   ],
   engineering: [
@@ -35,7 +35,7 @@ const SCRIPTS = {
   ],
   design: [
     [1, "Message bubbles cap at 640px so a long URL does not stretch the column."],
-    [0, "Presence dots reuse the status colour tokens — gold when someone is typing."],
+    [0, "Presence dots reuse the status colour tokens, gold when someone is typing."],
     [1, "The typing indicator is one fixed-height line; it must not push the composer."],
     [0, "Composer hint says 2,000 characters. That is the hub limit, not a UI guess."],
     [1, "I like that own messages are right-aligned without a second bubble colour."],
@@ -45,20 +45,20 @@ const SCRIPTS = {
 const LIVE_LINES = {
   general: [
     "Has anyone tried the raw socket client? It is about forty lines.",
-    "The demo hub is the production hub — same dispatch path, just no socket.",
+    "The demo hub is the production hub, same dispatch path, just no socket.",
     "History pagination walks backwards from a message id, so reconnect is cheap.",
     "The moderation hook is a function you pass in; the default allows everything.",
   ],
   engineering: [
     "Frame length 127 reads a big-endian uint64; the test uses 70,000 bytes.",
     "Ping payload is echoed back verbatim in the pong.",
-    "Close 1009 means the message was too big — separate from a protocol error.",
+    "Close 1009 means the message was too big, separate from a protocol error.",
     "The handshake only accepts version 13. Older drafts are dead.",
   ],
   design: [
     "Time labels are tabular so timestamps line up down the column.",
     "Deleted messages stay in history as a placeholder rather than disappearing.",
-    "This rail only shows protocol events, not raw frames — the frames live in tests.",
+    "This rail only shows protocol events, not raw frames, the frames live in tests.",
     "Room list counts come from the hub, never from a local guess.",
   ],
 };

@@ -2,13 +2,13 @@
 <img src="docs/demo.gif" alt="SocketChat demo with rooms, presence and typing indicators" width="100%" />
 </div>
 
-<sub>Recorded from the live demo — <a href="docs/demo.mp4">MP4</a> · <a href="docs/screenshot.png">static frame</a></sub>
+<sub>Recorded from the live demo, <a href="docs/demo.mp4">MP4</a> · <a href="docs/screenshot.png">static frame</a></sub>
 
 # SocketChat
 
 A realtime chat server with rooms, presence, typing indicators and history. It
-speaks RFC 6455 WebSockets implemented directly on `node:http` — handshake, frame
-parser, masking, fragmentation, ping/pong and close — with no `ws` package and no
+speaks RFC 6455 WebSockets implemented directly on `node:http`, handshake, frame
+parser, masking, fragmentation, ping/pong and close, with no `ws` package and no
 runtime dependency at all.
 
 [**Open the live demo**](https://arvion-technology.github.io/labs/demos/socketchat/demo/) · [MIT](LICENSE)
@@ -28,20 +28,20 @@ terminal client that exercises the handshake and framing without a browser.
 
 ## What it does
 
-- **WebSocket server** — HTTP upgrade validation, `Sec-WebSocket-Accept` hash,
+- **WebSocket server**: HTTP upgrade validation, `Sec-WebSocket-Accept` hash,
   frame decode/build, masking, fragmentation, ping/pong and the closing handshake
   on a raw `node:http` server.
-- **Rooms** — general, engineering and design by default; join, leave and switch
+- **Rooms**: general, engineering and design by default; join, leave and switch
   without losing per-room history.
-- **Presence and typing** — presence is derived from the connected client records;
+- **Presence and typing**: presence is derived from the connected client records;
   typing is a six-second expiry, not a separate socket event stream.
-- **History** — per-room, capped at 500 messages, paginated backwards by message
+- **History**: per-room, capped at 500 messages, paginated backwards by message
   id so a reconnect does not need the whole room.
-- **Rate limiting** — six messages per ten seconds per client, with the remaining
+- **Rate limiting**: six messages per ten seconds per client, with the remaining
   wait returned in the error.
-- **Moderation hook** — a function called before a message is stored; return a
+- **Moderation hook**: a function called before a message is stored; return a
   reason to reject it.
-- **Terminal client** — `client.mjs` joins a room, prints messages and sends what
+- **Terminal client**: `client.mjs` joins a room, prints messages and sends what
   you type, using the same codec the server uses.
 
 ## Screenshots
@@ -156,15 +156,15 @@ npm test
 
 31 tests on `node:test`:
 
-- `frame.test.js` — RFC masked/unmasked vectors, masking symmetry, ping/pong/close
+- `frame.test.js`: RFC masked/unmasked vectors, masking symmetry, ping/pong/close
   encodings, 16- and 64-bit lengths, partial frames, RSV/opcode violations,
   oversized control frames, close-code validation, fragmentation rules.
-- `handshake.test.js` — the RFC accept hash, header validation, version/path
+- `handshake.test.js`: the RFC accept hash, header validation, version/path
   rejection, 101 response shape, raw request-head parsing.
-- `hub.test.js` — join/welcome, presence transitions, message ordering, validation,
+- `hub.test.js`: join/welcome, presence transitions, message ordering, validation,
   rate-limit refill, typing expiry, edit/delete permissions, moderation hook,
   history pagination and capping, protocol dispatch errors.
-- `server.test.js` — a raw TCP client performs the upgrade, joins, receives a
+- `server.test.js`: a raw TCP client performs the upgrade, joins, receives a
   welcome, broadcasts a message to a second client, gets a pong for a ping, and
   receives an echoed close frame.
 

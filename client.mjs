@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// A terminal chat client — and a second proof that the socket layer works
+// A terminal chat client, and a second proof that the socket layer works
 // without a browser or any dependency.
 //
 //   node server.mjs
@@ -49,7 +49,7 @@ socket.on("data", (chunk) => {
     }
     handshakeDone = true;
     send({ type: "join", name, roomId });
-    console.log(`connected as ${name} in #${roomId} — type a message, ctrl-d to leave`);
+    console.log(`connected as ${name} in #${roomId}, type a message, ctrl-d to leave`);
     prompt();
   }
   for (;;) {
@@ -89,7 +89,7 @@ function render(event) {
       if (event.message.name !== name) process.stdout.write(`\r${event.message.name}: ${event.message.text}\n`);
       break;
     case "presence":
-      console.log(`— room has ${event.members.length} member(s): ${event.members.map((member) => member.name).join(", ")}`);
+      console.log(`, room has ${event.members.length} member(s): ${event.members.map((member) => member.name).join(", ")}`);
       break;
     case "typing":
       if (event.name !== name && event.typing) process.stdout.write(`\r${event.name} is typing…\n`);
